@@ -20,9 +20,12 @@ Checking the endpoint's applied policies view confirmed the policy was live and 
 
 One important detail surfaced during setup that's worth documenting honestly: the policy view flagged that it was currently bypassed, with settings deferred to another policy in the stack. That's a real and useful finding rather than a flaw to hide. It's a reminder that in Sophos Central, policy precedence and layering matter as much as the individual policy's settings, and a policy existing isn't the same as a policy actively enforcing.
 
+Separately, the Applications Most Frequently Blocked report (Last 90 days) corroborates this over a longer window, not just the single test event. It shows the policy catching two additional applications in the Remote management tool category, Anydesk (2 blocks) and TeamViewer (1 block), both attributed to the same test endpoint (LBA-RAPHAEL). This is a useful secondary confirmation: it shows the policy isn't only reacting to the specific test categories configured by hand, it's also catching a broader class of unauthorized tools, remote access software in this case, that falls under the same control logic.
+
 ## Lessons Learnt
 
 - A control configured at the network boundary is only as strong as the boundary itself. VPN use from a personal network fully bypassed it, which is exactly why the same intent needed to be re implemented at the endpoint.
 - Blocking by application category, rather than one off allow and deny per app, scales better for a policy meant to catch a class of risky tools, not just a specific known bad actor.
 - Desktop Messaging isn't cosmetic. Clear in the moment feedback to the user reduces IT support tickets and helps staff understand why something was blocked, rather than assuming it's a system error.
 - Policy precedence is a real operational risk. Discovering the policy was "bypassed" by another policy in the stack was a good reminder to always verify enforcement status, not just configuration, since a misconfigured hierarchy can silently neutralize an otherwise correct policy.
+- The Reports view is worth checking on its own, separate from the live event log, since it aggregates blocks over time and can surface categories of activity, like remote management tools, that weren't the original focus of the test.
