@@ -29,7 +29,7 @@ The fix running through all four policies is the same idea applied four times: m
 | [Application Control](./Application%20Control/README.md) | Firewall level app blocks bypassed via VPN | Document viewer and file sharing apps blocked at the endpoint, independent of network |
 | [Web Protection](./Web%20Protection/README.md) | Non work, high risk browsing on office laptops | Tagged site categories blocked during working hours, confirmed via live event log |
 | [Peripheral Control](./Peripheral%20Control/README.md) | Data loss and malware via removable media | USB storage and MTP/PTP blocked, with live block events captured within seconds of activation |
-| [Data Loss Prevention (DLP)](./DLP/README.md) | Confidential files leaving through removable storage, by department | Content matched transfers blocked across both direct copy and print to PDF methods |
+| [Data Loss Prevention (DLP)](./Data%20Loss%20Prevention/README.md) | Confidential files leaving through removable storage, by department | Content matched transfers blocked across both direct copy and print to PDF methods |
 
 ## A Recurring Lesson
 
